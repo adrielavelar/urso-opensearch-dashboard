@@ -1,13 +1,13 @@
 FROM opensearchproject/opensearch-dashboards:2.14.0
 
-ENV OPENSEARCH_HOSTS=https://urso-opensearch-production.up.railway.app
+# 🔥 CONECTA VIA HTTP (porque desativamos security)
+ENV OPENSEARCH_HOSTS=http://urso-opensearch-production.up.railway.app
 
-ENV plugins.security.disabled=true
+# desativa plugin de segurança do dashboard
+ENV DISABLE_SECURITY_DASHBOARDS_PLUGIN=true
 
-ENV OPENSEARCH_USERNAME=admin
-ENV OPENSEARCH_PASSWORD=4DR13L!junio01
-
-ENV NODE_OPTIONS=--max-old-space-size=512
+# necessário pro Railway
 ENV SERVER_HOST=0.0.0.0
+ENV NODE_OPTIONS=--max-old-space-size=512
 
 EXPOSE 5601
