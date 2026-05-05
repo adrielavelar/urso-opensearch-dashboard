@@ -1,12 +1,14 @@
 FROM opensearchproject/opensearch-dashboards:2.14.0
 
-# 🔥 CONECTA VIA HTTP (porque desativamos security)
-ENV OPENSEARCH_HOSTS=http://urso-opensearch-production.up.railway.app
+# 👇 USA HTTPS (OBRIGATÓRIO no Railway)
+ENV OPENSEARCH_HOSTS=https://urso-opensearch-production.up.railway.app
 
-# desativa plugin de segurança do dashboard
+# 👇 IGNORA SSL (porque backend não tem TLS real)
+ENV OPENSEARCH_SSL_VERIFICATIONMODE=none
+
+# sem segurança
 ENV DISABLE_SECURITY_DASHBOARDS_PLUGIN=true
 
-# necessário pro Railway
 ENV SERVER_HOST=0.0.0.0
 ENV NODE_OPTIONS=--max-old-space-size=512
 
