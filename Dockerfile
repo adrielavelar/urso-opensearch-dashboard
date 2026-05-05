@@ -2,6 +2,8 @@ FROM opensearchproject/opensearch-dashboards:2.14.0
 
 ENV OPENSEARCH_HOSTS=https://urso-opensearch-production.up.railway.app
 
+ENV plugins.security.disabled=true
+
 ENV OPENSEARCH_USERNAME=admin
 ENV OPENSEARCH_PASSWORD=4DR13L!junio01
 
